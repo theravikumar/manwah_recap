@@ -75,5 +75,5 @@ Open your browser at `http://localhost:8501` to preview inpainting, edit narrati
 
 1. Launch an instance with PyTorch 2.x and CUDA 12 image on JarvisLabs.
 2. Clone repository and run `pip install -r requirements.txt`.
-3. Launch Streamlit app: `streamlit run app.py --server.port 8501 --server.address 0.0.0.0`.
+3. Launch Streamlit app: `streamlit run app.py --server.port 8501 --server.address 0.0.0.0 --server.enableCORS false --server.enableXsrfProtection false`.
 4. Access the web dashboard via JarvisLabs exposed HTTP endpoint.
