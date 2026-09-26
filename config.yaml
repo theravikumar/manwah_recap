@@ -1,0 +1,62 @@
+# Config file for Manhwa Recap YouTube Engine
+
+project:
+  name: "Manhwa Recap Engine"
+  version: "1.0.0"
+  output_dir: "./outputs"
+  temp_dir: "./temp"
+
+hardware:
+  device: "cuda"          # cuda or cpu
+  target_gpu: "L4"        # L4 (24GB) or A100 (40GB)
+  fp16: true
+
+scraper:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  timeout: 30
+  delay_between_requests: 1.0
+
+inpainter:
+  model_type: "lama"      # lama or opencv
+  bubble_detection: "contour_hybrid" # contour_hybrid, yolo, or craft
+  padding: 8              # Padding around text bubbles for clean inpainting
+  confidence_threshold: 0.5
+
+enhancer:
+  scale_factor: 2          # 2x or 4x upscale
+  enable_upscale: true
+  enable_motion: true
+  motion_type: "ken_burns_2d" # ken_burns_2d or depth_2_5d
+  frame_rate: 30
+  slide_duration_seconds: 5.0 # default duration per panel if no TTS sync
+
+llm:
+  provider: "local_or_api" # local_llm, gemini_api, or openai_api
+  model_name: "Qwen/Qwen2.5-7B-Instruct"
+  temperature: 0.7
+  max_tokens: 2048
+
+tts:
+  engine: "kokoro"         # kokoro, f5_tts, chat_tts, or edge_tts
+  voice: "af_heart"        # af_heart, am_adam, af_bella, am_michael
+  speed: 1.05              # 1.05x speed for snappy YouTube pacing
+  output_format: "wav"
+
+subtitles:
+  whisper_model: "base"    # tiny, base, small, medium
+  font_name: "Impact"
+  font_size: 28
+  primary_color: "&H00FFFFFF" # White text
+  outline_color: "&H00000000" # Black outline
+  outline_width: 3
+  active_word_color: "&H0000FFFF" # Yellow highlight
+
+renderer:
+  width: 1920
+  height: 1080
+  fps: 30
+  video_codec: "libx264"
+  audio_codec: "aac"
+  preset: "fast"
+  crf: 18
+  bgm_volume: 0.12         # Background music volume relative to TTS (0.0 - 1.0)

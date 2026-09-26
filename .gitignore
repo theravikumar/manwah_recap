@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output & Temp folders
+outputs/
+temp/
+*.mp4
+*.wav
+*.jpg
+*.png
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Pytest & Cache
+.pytest_cache/
+.coverage
+
+# IDE
+.vscode/
+.idea/
